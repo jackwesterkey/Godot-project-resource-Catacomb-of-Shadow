@@ -1,0 +1,267 @@
+[gd_scene load_steps=18 format=3 uid="uid://c8d5c3e3mx1pm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_jjaaa"]
+[ext_resource type="PackedScene" uid="uid://7o85wex027pn" path="res://cheese.tscn" id="2_nfc5c"]
+[ext_resource type="Script" path="res://kill.gd" id="3_jc6ty"]
+[ext_resource type="Texture2D" uid="uid://b2hcseykohb3k" path="res://pxiel/gunb.png" id="4_c6l26"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s76bo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x2u0s"]
+
+[sub_resource type="Animation" id="Animation_20dw8"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/WeaponPivot/WeaponMesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0114565, -1.53335, -0.0119122)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/WeaponPivot/WeaponMesh:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.362726, -0.579952, -0.722958)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("head/Camera3D/WeaponPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qicu4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/WeaponPivot/WeaponMesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0374147, -1.58237, 1.56223)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/WeaponPivot/WeaponMesh:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.037, -0.58, -1.04), Vector3(0.0373463, -0.579952, -1.23976)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("head/Camera3D/WeaponPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uuaa4"]
+resource_name = "attack"
+length = 0.81
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/WeaponPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/WeaponPivot/WeaponMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0122173, -1.53414, -0.0122173), Vector3(-0.0374147, -1.58237, 1.56223), Vector3(-0.0374147, -1.58237, 1.56223), Vector3(-0.0374147, -1.58237, 1.56223), Vector3(-0.0122173, -1.53414, -0.0122173)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("head/Camera3D/WeaponPivot/WeaponMesh:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1.51572, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.363, -0.58, -0.723), Vector3(0.0373463, -0.579952, -1.04884), Vector3(0.0373463, -0.579952, -1.04884), Vector3(0.0373463, -0.579952, -1.61211), Vector3(0.0373463, -0.579952, -1.61211), Vector3(0.0373463, -0.579952, -1.61211), Vector3(0.363, -0.58, -0.723)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4ask"]
+_data = {
+"Idle": SubResource("Animation_20dw8"),
+"RESET": SubResource("Animation_qicu4"),
+"attack": SubResource("Animation_uuaa4")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we75v"]
+atlas = ExtResource("4_c6l26")
+region = Rect2(0, 0, 48, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkwca"]
+atlas = ExtResource("4_c6l26")
+region = Rect2(0, 0, 48, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjgnw"]
+atlas = ExtResource("4_c6l26")
+region = Rect2(0, 51, 48, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a654u"]
+atlas = ExtResource("4_c6l26")
+region = Rect2(0, 102, 48, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rafmm"]
+atlas = ExtResource("4_c6l26")
+region = Rect2(0, 153, 48, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6j57"]
+atlas = ExtResource("4_c6l26")
+region = Rect2(0, 204, 48, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivawu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we75v")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkwca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjgnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a654u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rafmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6j57")
+}],
+"loop": true,
+"name": &"test",
+"speed": 3.0
+}]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_jjaaa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_s76bo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_x2u0s")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.621719, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0993652, 0)
+current = true
+fov = 88.0
+
+[node name="WeaponPivot" type="Node3D" parent="head/Camera3D"]
+
+[node name="WeaponMesh" parent="head/Camera3D/WeaponPivot" instance=ExtResource("2_nfc5c")]
+transform = Transform3D(0.0176816, 0.00896763, -0.44266, 0.473651, 0.0064544, 0.0165708, 0.00426532, -0.753917, -0.00512345, 0.037, -0.58, -1.04)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D/WeaponPivot"]
+transform = Transform3D(1, 2.17065e-10, 9.05673e-10, 0, 0.972459, -0.233072, -9.31323e-10, 0.233072, 0.972459, -7.45058e-09, -0.690465, 4.15357)
+light_energy = 1.383
+light_indirect_energy = 1.05
+light_volumetric_fog_energy = 0.94
+spot_range = 4096.0
+spot_attenuation = 0.0236831
+spot_angle = 23.16
+spot_angle_attenuation = 0.0915054
+
+[node name="Node3D" type="Node3D" parent="head/Camera3D/WeaponPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0524413, 0.166816, -2.03453)
+script = ExtResource("3_jc6ty")
+objectToDeletePath = NodePath("../../CharacterBody3D")
+secondObjectToDeletePath = NodePath("../WeaponMesh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h4ask")
+}
+autoplay = "Idle"
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0.725, -0.008)
+target_position = Vector3(0, 0, -1000)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GunBase" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/GunBase"]
+visible = false
+texture_filter = 1
+position = Vector2(23, -16)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_ivawu")
+animation = &"test"
+autoplay = "Idle"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

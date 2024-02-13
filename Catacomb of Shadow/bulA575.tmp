@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8d5c3e3mx1pm"]
+
+[ext_resource type="Script" path="res://bul.gd" id="1_1aqxi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s76bo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x2u0s"]
+
+[sub_resource type="GDScript" id="GDScript_v73wa"]
+script/source = "extends Camera3D
+
+# Sensitivity for mouse movement
+var mouse_sensitivity = 0.3
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+# Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta):
+    # Check for mouse movement
+    var mouse_motion = Input.get_mouse_motion()
+    rotate_x(deg_to_rad(-mouse_sensitivity * mouse_motion.y))
+    rotate_y(deg_to_rad(-mouse_sensitivity * mouse_motion.x))
+"
+
+[node name="Bul" type="CharacterBody3D"]
+script = ExtResource("1_1aqxi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_s76bo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_x2u0s")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721084, 0)
+fov = 88.0
+script = SubResource("GDScript_v73wa")
