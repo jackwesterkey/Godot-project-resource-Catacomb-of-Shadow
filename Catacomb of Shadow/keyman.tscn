@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cal3v5q31lh0v"]
-
-[ext_resource type="PackedScene" uid="uid://dqlex82wysmrh" path="res://keyman two.glb" id="1_wja0h"]
-
-[node name="keyman two" instance=ExtResource("1_wja0h")]
